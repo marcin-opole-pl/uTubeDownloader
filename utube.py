@@ -8,7 +8,7 @@ def main():
     # Get url
     print('______________________________', end='\n\n')
     video = input(lang()[0])
-    print('______________________________')
+    print('______________________________', end='\n\n')
 
     # Check for http
     if not video.startswith('http'):
@@ -25,6 +25,7 @@ def main():
     # Get streams info
     i = yt.streams.filter(only_audio=True)
     print(yt.title)
+    print('__________________________', end='\n\n')
     print('Dostępne streamy audio:', end='\n\n')
     for j in i:
         print('SIZE: ', j.filesize_mb, 'mb', ' -- ', j, end='\n\n')

@@ -1,0 +1,20 @@
+#:kivy 2.2.1
+
+MDFloatLayout:
+    MDLabel:
+        text: '[b]Download UTube file[/b]'
+        halign:'center'
+        markup: True
+        pos_hint: {'y': 0.45}
+    MDTextField:
+        id: get_url_input
+        text: 'https://www.youtube.com/results?search_query=kivy+app'
+        hint_text: "URL to check:"
+        helper_text: "This is the URL from your current opened browser tab"
+        helper_text_mode: "persistent"
+        pos_hint: {'x': 0.1, 'y': 0.55}
+        size_hint_x: 0.8
+    MDIconButton:
+        icon: 'done.png'
+        pos_hint: {'x': 0.86, 'y': 0.56}
+

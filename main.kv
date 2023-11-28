@@ -8,13 +8,22 @@ MDFloatLayout:
         pos_hint: {'y': 0.45}
     MDTextField:
         id: get_url_input
-        text: 'https://www.youtube.com/results?search_query=kivy+app'
+        text: 'https://www.youtube.com/watch?v=q173FBKFnbI'
         hint_text: "URL to check:"
         helper_text: "This is the URL from your current opened browser tab"
         helper_text_mode: "persistent"
-        pos_hint: {'x': 0.1, 'y': 0.55}
+        max_text_length: 80
+        pos_hint: {'x': 0.1, 'y': 0.82}
         size_hint_x: 0.8
     MDIconButton:
         icon: 'done.png'
-        pos_hint: {'x': 0.86, 'y': 0.56}
-
+        pos_hint: {'x': 0.86, 'y': 0.83}
+        on_release: app.get_streams()
+    MDLabel:
+        id: loading_label
+        text: ''
+        halign:'center'
+        pos_hint: {'y': 0.29}
+        font_size: 14
+        theme_text_color: 'Custom'
+        text_color: 1, 0.655, 0, 1

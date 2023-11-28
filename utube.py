@@ -32,9 +32,9 @@ def main():
 
     # Choose itag
     itag = input("Wybierz odpowiedni itag (jeżeli się da wybierz - 249): ")
-    print('') 
-
-    # Get stream 
+    print('')
+    
+    # Get stream
     i = yt.streams.get_by_itag(itag)
 
     #Gets the title of the video

@@ -1,29 +1,35 @@
 #:kivy 2.2.1
 
+
 MDFloatLayout:
     MDLabel:
+        pos_hint: {'y': 0.9}
+        size_hint: 1, 0.1
         text: '[b]Download UTube file[/b]'
         halign:'center'
         markup: True
-        pos_hint: {'y': 0.45}
+        theme_text_color: 'Hint'
+        # md_bg_color: app.theme_cls.primary_color
     MDTextField:
+        pos_hint: {'x': 0.1, 'y': 0.8}
+        size_hint_x: 0.8
         id: get_url_input
         text: 'https://www.youtube.com/watch?v=q173FBKFnbI'
         hint_text: "URL to check:"
         helper_text: "This is the URL from your current opened browser tab"
         helper_text_mode: "persistent"
         max_text_length: 80
-        pos_hint: {'x': 0.1, 'y': 0.82}
-        size_hint_x: 0.8
     MDIconButton:
+        pos_hint: {'x': 0.86, 'y': 0.81}
         icon: 'done.png'
-        pos_hint: {'x': 0.86, 'y': 0.83}
-        on_release: app.get_streams()
+#        on_release: app.get_streams()
     MDLabel:
+        pos_hint: {'y': 0.72}
+        size_hint: 1, 0.1
         id: loading_label
-        text: ''
+        text: 'dsddddd'
         halign:'center'
-        pos_hint: {'y': 0.29}
         font_size: 14
         theme_text_color: 'Custom'
         text_color: 1, 0.655, 0, 1
+        

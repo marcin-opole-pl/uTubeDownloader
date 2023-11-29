@@ -14,14 +14,14 @@ class MainApp(MDApp):
         # Display info on progress
         self.root.ids.loading_label.text = 'Loading streams'
         # Get input form user
-#        self.url = self.root.ids.get_url_input.text
+        self.url = self.root.ids.get_url_input.text
         # Load streams from url
-#        url_streams = YouTube(self.url).streams
+        url_streams = YouTube(self.url).streams
         # Display info progress
-#        self.root.ids.loading_label.text = 'Streams loaded'
+        self.root.ids.loading_label.text = 'Streams loaded'
         # Display avaiable streams
-#        for elem in url_streams:
-#            print(elem)
+        for elem in url_streams:
+                print(elem)
 
 
 

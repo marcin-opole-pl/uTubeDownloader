@@ -1,6 +1,7 @@
 #:kivy 2.2.1
 
 
+
 MDFloatLayout:
     MDLabel:
         pos_hint: {'y': 0.9}
@@ -8,8 +9,8 @@ MDFloatLayout:
         text: '[b]Download UTube file[/b]'
         halign:'center'
         markup: True
-        theme_text_color: 'Hint'
-        # md_bg_color: app.theme_cls.primary_color
+#        md_bg_color: app.theme_cls.primary_color
+        color: app.theme_cls.primary_color
     MDTextField:
         pos_hint: {'x': 0.1, 'y': 0.8}
         size_hint_x: 0.8
@@ -21,15 +22,23 @@ MDFloatLayout:
         max_text_length: 80
     MDIconButton:
         pos_hint: {'x': 0.86, 'y': 0.81}
-        icon: 'done.png'
-#        on_release: app.get_streams()
+        icon: 'check-circle-outline'
+        on_press: loading_label.text = 'Loading streams...'
+        on_release: app.get_streams()
     MDLabel:
-        pos_hint: {'y': 0.72}
+        pos_hint: {'y': 0.71}
         size_hint: 1, 0.1
         id: loading_label
-        text: 'dsddddd'
+        text: ''
         halign:'center'
         font_size: 14
         theme_text_color: 'Custom'
         text_color: 1, 0.655, 0, 1
-        
+
+    BoxLayout:
+        pos_hint: {'x': 0.1,'top': 0.75}
+        size_hint: 0.8, 0.5
+        orientation: 'vertical'
+        MDScrollView:
+            MDList:
+                id: streams_list

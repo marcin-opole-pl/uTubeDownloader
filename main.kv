@@ -4,9 +4,8 @@
     theme_text_color :'Secondary'
     font_style : 'H6'
     secondary_font_style : 'Caption'
-    IconLeftWidget:
-        icon : "download-circle-outline"
-        on_press : root.get_itag()
+    on_press : root.get_itag()
+    on_release: app.clear_streams()
 
 
 MDFloatLayout:
@@ -43,6 +42,7 @@ MDFloatLayout:
         text_color: 1, 0.655, 0, 1
 
     BoxLayout:
+        id: display_box
         pos_hint: {'x': 0.1,'top': 0.75}
         size_hint: 0.8, 0.5
         orientation: 'vertical'

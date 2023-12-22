@@ -1,5 +1,5 @@
 from kivymd.app import MDApp
-from kivymd.uix.list import TwoLineIconListItem
+from kivymd.uix.list import TwoLineListItem
 from kivy.lang import Builder
 
 from pytube import YouTube
@@ -44,17 +44,36 @@ class MainApp(MDApp):
         self.root.ids.loading_label.text = ''
 
 
-class ParsedStream(TwoLineIconListItem):
-
+class ParsedStream(TwoLineListItem):
+    '''Stream object after conversion'''
     def __init__(self, value, **kwargs):
         super(ParsedStream, self).__init__(**kwargs)
 
-        self.text=f"Stream size: {int(value.filesize_mb)} MB"
-        self.secondary_text = str(value)[9:-1]
+        #Get stream size
+        self.stream_size = int(value.filesize_mb)
+
+        # Clean stream info
+        stream_info = str(value)[9:-1].replace('"','')
+
+        # Convert stream to a list
+        stream_as_list = stream_info.split(' ')
+
+        #Get itag and type from stream
+        for element in stream_as_list:
+            if element.startswith('itag='):
+                self.stream_itag = element[5:]
+
+        for element in stream_as_list:
+            if element.startswith('type='):
+                self.stream_type = element[10:]
+
+
+        self.text=f"Stream size: {self.stream_size} MB"
+        self.secondary_text = stream_info
 
     def get_itag(self):
         '''Get itag of the stream to download'''
-        print(self.text)
+        print(self.stream_itag)
 
 
 
